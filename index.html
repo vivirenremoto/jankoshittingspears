@@ -103,6 +103,7 @@
         var lanza_lanzada = false;
         var timer_enemies;
         var score = 0;
+        var enemy_height = 212;
 
         var screen_height = $(document).height();
         var screen_width = $(document).width();
@@ -150,7 +151,7 @@
                 var enemy_found = $(this).data('who') == 'enemy';
 
                 if (enemy_found) {
-                    $(this).data('died', 1);
+                    $(this).data('died', 1).stop();
                 }
 
 
@@ -233,7 +234,7 @@
                 var rand_col = randomNumber(0, 2);
 
                 $(this).find('td:eq(' + rand_col + ')').data('who', 'enemy').css('background-position-y', cell_height).css('background-image', "url('static/" + photo + "')").animate({
-                    'background-position-y': (cell_height - 212)
+                    'background-position-y': (cell_height - enemy_height)
                 }, 1000);
 
 

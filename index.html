@@ -119,27 +119,12 @@
 
 
 
+        showEnemies();
+
 
         timer_enemies = setInterval(function () {
 
-            var photo = 'ocelote.png';
-
-
-
-            $('tr').each(function () {
-
-                $(this).find("td[data-died=0]").css('background-position-y', cell_height).data('who', '');
-
-                var rand_col = randomNumber(0, 2);
-
-                $(this).find('td:eq(' + rand_col + ')').data('who', 'enemy').css('background-position-y', cell_height).css('background-image', "url('static/" + photo + "')").animate({
-                    'background-position-y': (cell_height - 212)
-                }, 1000);
-
-
-
-
-            })
+            showEnemies();
 
 
 
@@ -233,6 +218,27 @@
             } else {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
+        }
+
+        function showEnemies() {
+            var photo = 'ocelote.png';
+
+
+
+            $('tr').each(function () {
+
+                $(this).find("td[data-died=0]").css('background-position-y', cell_height).data('who', '');
+
+                var rand_col = randomNumber(0, 2);
+
+                $(this).find('td:eq(' + rand_col + ')').data('who', 'enemy').css('background-position-y', cell_height).css('background-image', "url('static/" + photo + "')").animate({
+                    'background-position-y': (cell_height - 212)
+                }, 1000);
+
+
+
+
+            });
         }
 
     </script>

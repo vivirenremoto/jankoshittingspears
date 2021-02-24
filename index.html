@@ -18,6 +18,7 @@
     <style>
         body {
             background: black;
+            overflow: hidden;
         }
 
         table {
@@ -127,7 +128,7 @@
 
             $('tr').each(function () {
 
-                $(this).find("td:not([data-died=0])").css('background-position-y', cell_height).data('who', '');
+                $(this).find("td:not([data-died=1])").css('background-position-y', cell_height).data('who', '');
 
                 var rand_col = randomNumber(0, 2);
 
@@ -185,7 +186,7 @@
                 pos_x -= lanza_width;
 
 
-                jQuery('#lanza').show().css('left', lanza_width).css('top', screen_height + e.pageY).animate({
+                jQuery('#lanza').show().css('left', -lanza_width).css('top', (screen_height + lanza_height + e.pageY)).animate({
                     'left': pos_x + 'px',
                     'top': pos_y + 'px',
                 }, 800, function () {

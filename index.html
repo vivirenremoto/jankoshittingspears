@@ -206,13 +206,14 @@
                         $('#lanza').hide();
                         lanza_lanzada = false;
 
-                        sound_ouch.currentTime = 0;
-                        sound_ouch.play();
+                        if (enemy_found) {
+                            sound_ouch.currentTime = 0;
+                            sound_ouch.play();
+                        }
 
                     }, 50);
                 });
 
-                //alert(e.pageX + '--' + e.pageY);
 
             }
 

@@ -117,6 +117,7 @@
         $('table').css('left', (screen_width - (parseInt($('table').css('width')))) / 2);
 
 
+        $('td').data('died', 0);
 
 
         showEnemies();
@@ -227,7 +228,7 @@
 
             $('tr').each(function () {
 
-                $(this).find("td[data-died=0]").css('background-position-y', cell_height).data('who', '');
+                $(this).find("td:not([data-died=1])").css('background-position-y', cell_height).data('who', '');
 
                 var rand_col = randomNumber(0, 2);
 

@@ -127,7 +127,7 @@
 
             $('tr').each(function () {
 
-                $(this).find("td:not([data-died!=1])").css('background-position-y', cell_height).data('who', '');
+                $(this).find("td:not([data-died=0])").css('background-position-y', cell_height).data('who', '');
 
                 var rand_col = randomNumber(0, 2);
 

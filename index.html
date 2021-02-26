@@ -16,13 +16,13 @@
     <link rel="prefetch" href="static/lanza5.mp3" />
     <link rel="prefetch" href="static/lanza2.png" />
 
-    <meta property="og:image" content="static/jankosshareimage.png">
-    <meta property="og:image:secure_url" content="static/jankosshareimage.png">
+    <meta property="og:image" content="https://jankoshittingspears.com/static/jankosshareimage.png">
+    <meta property="og:image:secure_url" content="https://jankoshittingspears.com/static/jankosshareimage.png">
     <meta property="og:image:alt" content="Jankos Spears">
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Jankos Spears">
-    <meta name="twitter:image" content="static/jankosshareimage.png">
+    <meta name="twitter:image" content="https://jankoshittingspears.com/static/jankosshareimage.png">
 
 </head>
 
@@ -30,15 +30,101 @@
 
 
     <style>
+        /* general */
+
+        * {
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Old versions of Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently
+                            supported by Chrome, Edge, Opera and Firefox */
+        }
+
         body {
             background: black;
             overflow: hidden;
+            touch-action: pan-x pan-y;
+        }
+
+        body,
+        button {
+            font-size: 25px;
+            font-family: arial;
+        }
+
+        a,
+        b {
+            color: #C79E57;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .btn {
+            cursor: pointer;
+            width: 100%;
+            display: block;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+
+        .btn_primary {
+            border: 1px #C79E57 solid;
+            background: #C79E57;
+            color: black;
+        }
+
+        .btn_default {
+            border: 1px #C79E57 solid;
+            background: black;
+            color: #C79E57;
+        }
+
+        .btn_social {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        /* intro */
+
+        #intro {
+            position: fixed;
+            text-align: center;
+            z-index: 99;
+            color: white;
+            width: 480px;
+            left: 50%;
+            margin-left: -240px;
+        }
+
+
+        /* game */
+
+        #game {
+
+            display: none;
         }
 
         table {
             position: fixed;
             width: 480px;
             border: 1px black solid;
+            border-top: 70px black solid;
             top: 0;
             height: 100%;
 
@@ -53,7 +139,8 @@
             overflow: hidden;
             text-align: center;
             background-repeat: no-repeat;
-            background-position-x: 'center';
+            background-position-x: center;
+            background-size: contain;
         }
 
         #lanza {
@@ -71,41 +158,126 @@
         #header {
             font-size: 50px;
             color: white;
-            text-align: center;
-            left: 0;
-            right: 0;
+            width: 480px;
+            left: 50%;
+            margin-left: -240px;
             top: 0;
             z-index: 2;
             position: fixed;
         }
+
+        #lives {
+            display: inline-block;
+            width: 33%;
+            text-align: left;
+        }
+
+        #score {
+            display: inline-block;
+            width: 33%;
+            text-align: center;
+        }
+
+        #time {
+            display: inline-block;
+            width: 33%;
+            text-align: right;
+        }
+
+        /* final */
+
+        #result {
+            position: fixed;
+            display: none;
+            text-align: center;
+            z-index: 99;
+            color: white;
+            width: 480px;
+            left: 50%;
+            margin-left: -240px;
+        }
     </style>
 
-    <div id="lanza">
+
+
+
+    <div id="intro">
+        <img src="static/jankoshappy.png">
+        <br><br>
+        <div style="font-weight:bold">Welcome to the <b>Jankos Nidalee Spear Simulator 2021</b></div>
+        <br>
+        Hit enemies but careful...
+        <br>
+        Don't hit your allies!
+        <br><br>
+        <button onclick="startGame();" class="btn btn_primary">Start the game</button>
+        <br>
+        Share the game
+        <br>
+        <img src="static/shareIcons/whatsapp.png" class="btn_social">
+        <img src="static/shareIcons/twitter.png" class="btn_social">
+        <img src="static/shareIcons/facebook.png" class="btn_social">
+        <br><br>
+        Made with love by<br>
+        <a href="https://twitter.com/tacterapp" target="_blank">@tacterapp ❤️</a>
     </div>
 
-    <div id="header">
-        <span id="lives"></span>
-        <span id="score">0</span>
+    <div id="game">
+
+        <div id="lanza">
+        </div>
+
+        <div id="header">
+            <div style="padding:0 15px;">
+                <span id="lives"></span><span id="score">0</span><span id="time">1:00</span>
+            </div>
+        </div>
+
+
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
     </div>
 
 
-    <table cellspacing="0" cellpadding="0">
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+    <div id="result">
+        <img src="static/jankossad.gif">
+        <br><br>
+        You scored <b id="final_score">58</b>
+        <br>
+        That's actually <span>pretty bad</span>
+        <br><br>
+        <button onclick="location.reload();" class="btn btn_primary">Try again</button>
+        <br>
+        Share the game
+        <br>
+        <img src="static/shareIcons/whatsapp.png" class="btn_social">
+        <img src="static/shareIcons/twitter.png" class="btn_social">
+        <img src="static/shareIcons/facebook.png" class="btn_social">
+        <br><br>
+        Maybe you should switch to <b>TFT</b> and use <b>Tacter App</b> to win some games.
+        <br><br>
+        <a href="https://get.tacter.app/WxYiSJCxaeb" target="_blank" class="btn btn_default">Download the best TFT
+            App</a>
+        <br><br>
+        Made with love by<br>
+        <a href="https://twitter.com/tacterapp" target="_blank">@tacterapp ❤️</a>
+    </div>
 
 
     <audio id="sound_lanza">
@@ -130,13 +302,14 @@
 
 
     <script>
+        var time_left = 30;//60;
         var timer_lanza;
         var lanza_lanzada = false;
         var timer_enemies;
         var score = 0;
-        var enemy_height = 212;
         var max_lives = 3;
         var total_lives = max_lives;
+        var game_delay = 500;
 
         var screen_height = $(document).height();
         var screen_width = $(document).width();
@@ -161,14 +334,12 @@
 
 
 
+        /*
         timer_enemies = setInterval(function () {
 
             showEnemies();
-
-
-
-
         }, 5000);
+        */
 
 
         $('td').click(function (e) {
@@ -190,7 +361,7 @@
                 var enemy_found = current_type == 'enemies';
 
 
-                if (enemy_found) {
+                if (current_type == 'enemies') {
                     $(this).data('died', 1).stop();
                 }
 
@@ -211,17 +382,19 @@
                 pos_x -= lanza_width;
 
 
-                jQuery('#lanza').show().css('left', -lanza_width).css('top', (screen_height + lanza_height + e.pageY)).animate({
+                jQuery('#lanza').stop().show().css('left', -lanza_width).css('top', (screen_height + lanza_height + e.pageY)).animate({
                     'left': pos_x + 'px',
                     'top': pos_y + 'px',
-                }, 800, function () {
+                }, 400, function () {
 
 
 
-                    $(td_current).data('who', '').data('died', 0).css('background-position-y', cell_height);
 
 
-                    if (enemy_found) {
+                    if (current_type == 'enemies') {
+                        sound_ko_enemies.currentTime = 0;
+                        sound_ko_enemies.play();
+
                         score++;
                         $('#score').html(score);
 
@@ -232,14 +405,28 @@
                         */
 
 
+                        $(td_current).css('background-color', 'rgb(0,255,0,0.2)');
+                    } else if (current_type == 'allies') {
+                        $(td_current).css('background-color', 'rgb(255,0,0,0.2)');
                     }
 
 
 
 
                     setTimeout(function () {
+
+                        $(td_current).data('who', '').data('died', 0).css('background-image', 'none').css('background-color', 'inherit');
+
+                    }, 150);
+
+
+                    lanza_lanzada = false;
+
+
+
+                    setTimeout(function () {
                         $('#lanza').hide();
-                        lanza_lanzada = false;
+
 
                         if (current_type == 'enemies') {
                             sound_ko_enemies.currentTime = 0;
@@ -252,11 +439,11 @@
                             updateLives();
 
                             if (total_lives == 0) {
-                                alert('game_over');
+                                endGame();
                             }
                         }
 
-                    }, 50);
+                    }, 10);
                 });
 
 
@@ -298,11 +485,71 @@
         function showEnemies() {
 
 
+
+
+            cells_numbers = [];
             cells = [];
             allies_aux = [...allies];
             enemies_aux = [...enemies];
             allies_aux = shuffle(allies_aux);
             enemies_aux = shuffle(enemies_aux);
+
+
+
+            for (var i = 0; i < total_cells; i++) {
+                cells_numbers.push(i);
+            }
+            cells_numbers = shuffle(cells_numbers);
+
+
+
+            ////////////////////////////////
+
+            // cada celda es independiente?
+
+
+
+
+            var rand_col = randomNumber(0, 3);
+
+            if (rand_col == 1) {
+                if (allies_aux[0]) {
+                    cells.push('allies/' + allies_aux[0]);
+                    allies_aux.shift();
+                }
+            } else if (rand_col == 2) {
+                if (enemies_aux[0]) {
+                    cells.push('enemies/' + enemies_aux[0]);
+                    enemies_aux.shift();
+                }
+            } else {
+                cells.push('/');
+            }
+
+
+
+
+
+            var random_delay = 1;//randomNumber(1, 500);
+
+            j = cells_numbers[0];
+            //setTimeout(updateCell, random_delay, j);
+
+
+            var t_name = cells[0].split('/');
+            var photo = cells[0] != '/' ? "url('static/" + cells[0] + ".png')" : 'none';
+
+            $('td:eq(' + j + ')').data('who', t_name[0]).css('background-position-y', cell_height).css('background-image', photo).animate({
+                'background-position-y': 0
+            }, 1000);
+
+
+
+            if (time_left) {
+                setTimeout(showEnemies, game_delay);
+            }
+
+            /*
 
 
 
@@ -334,6 +581,8 @@
                 setTimeout(updateCell, random_delay, j);
             }
 
+            */
+
 
 
         }
@@ -348,7 +597,7 @@
             var photo = cells[j] != '/' ? "url('static/" + cells[j] + ".png')" : 'none';
 
             $('td:eq(' + j + ')').data('who', t_name[0]).css('background-position-y', cell_height).css('background-image', photo).animate({
-                'background-position-y': (cell_height - enemy_height)
+                'background-position-y': 0
             }, 1000);
         }
 
@@ -356,7 +605,7 @@
             var html = '';
 
             for (var i = 0; i < total_lives; i++) {
-                html += '❤';
+                html += '♥';
             }
             for (var i = 0; i < (max_lives - total_lives); i++) {
                 html += '♡';
@@ -364,6 +613,54 @@
 
 
             $('#lives').html(html);
+        }
+
+        function startGame() {
+
+            $('#intro').hide();
+            $('#game').show();
+
+            setInterval(function () {
+
+                time_left--;
+
+
+                if (time_left == 0) {
+                    endGame();
+                }
+
+                if (time_left < 10) time_left = '0' + time_left;
+
+                $('#time').html('0:' + time_left);
+            }, 1000);
+
+
+            total_cells = $('td').length;
+
+            $('table').css('left', (screen_width - (parseInt($('table').css('width')))) / 2);
+
+            $('td').data('died', 0);
+
+
+            showEnemies();
+            updateLives();
+        }
+
+        function endGame() {
+            $('#final_score').html(score);
+
+            if (score >= 10) {
+                status_text = 'great';
+                status_color = '#00ff00';
+            } else {
+                status_text = 'pretty bad';
+                status_color = '#ff0000';
+            }
+            $('#score_status').html(status_text).css('color', status_color);
+
+
+            $('#game').hide();
+            $('#result').show();
         }
 
         $(function () {
@@ -376,16 +673,31 @@
                 }
             });
 
-
-            total_cells = $('td').length;
-
-            $('table').css('left', (screen_width - (parseInt($('table').css('width')))) / 2);
-
-            $('td').data('died', 0);
+            $('.btn_social').click(function () {
+                var network = $(this).attr('src');
+                var share_url = document.location.href;
 
 
-            showEnemies();
-            updateLives();
+                var share_message = document.title;
+                if (score) {
+                    share_message += ' 👊 ¡Supera mi puntuación! 🔥' + score;
+                }
+
+                if (network.indexOf('twitter') > -1) {
+                    share_url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(share_message) + '&tw_p=tweetbutton&url=' + share_url;
+
+                } else if (network.indexOf('facebook') > -1) {
+                    share_url = 'https://www.facebook.com/sharer/sharer.php?u=' + share_url + '&quote=' + encodeURIComponent(share_message);
+
+                } if (network.indexOf('whatsapp') > -1) {
+                    share_url = 'whatsapp://send?text=' + encodeURIComponent(share_message + ' ' + share_url);
+                }
+
+                window.open(share_url);
+
+            });
+
+            //startGame();
 
         });
 

@@ -2,31 +2,49 @@
 <html>
 
 <head>
-    <title>Jankos Spears</title>
+    <title>Zoning Spears with Jankos</title>
+
+    <meta name="description"
+        content="From zoning to hitting enemies with G2Jankos Nidalee Spear Simulator 2021. 🎯 Break my score!! 🔥" />
+
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
 
-    <link rel="prefetch" href="static/music2.mp3" />
-    <link rel="prefetch" href="static/music_end.mp3" />
-    <link rel="prefetch" href="static/ko.mp3" />
-    <link rel="prefetch" href="static/ko_allies3.mp3" />
-    <link rel="prefetch" href="static/lanza5.mp3" />
+    <link rel="prefetch" href="static/sounds/music3.mp3" />
+    <link rel="prefetch" href="static/sounds/music_end.mp3" />
+    <link rel="prefetch" href="static/sounds/ko.mp3" />
+    <link rel="prefetch" href="static/sounds/ko_allies3.mp3" />
+    <link rel="prefetch" href="static/sounds/lanza5.mp3" />
     <link rel="prefetch" href="static/lanza2.png" />
 
-    <meta property="og:image" content="https://jankoshittingspears.com/static/jankosshareimage.png">
-    <meta property="og:image:secure_url" content="https://jankoshittingspears.com/static/jankosshareimage.png">
-    <meta property="og:image:alt" content="Jankos Spears">
+    <meta property="og:image" content="https://jankosspears.com/static/jankosshareimage.png">
+    <meta property="og:image:secure_url" content="https://jankosspears.com/static/jankosshareimage.png">
+    <meta property="og:image:alt" content="Zoning Spears with Jankos">
     <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jankos Spears">
-    <meta name="twitter:image" content="https://jankoshittingspears.com/static/jankosshareimage.png">
+    <meta name="twitter:title" content="Zoning Spears with Jankos">
+    <meta name="twitter:image" content="https://jankosspears.com/static/jankosshareimage.png">
 
 </head>
 
 <body>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L03T51NJ8R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L03T51NJ8R');
+    </script>
+
 
 
     <style>
@@ -56,7 +74,7 @@
 
         body,
         button {
-            font-size: 25px;
+            font-size: 20px;
             font-family: arial;
         }
 
@@ -74,8 +92,9 @@
         }
 
         .btn {
+            font-weight: bold;
             cursor: pointer;
-            width: 100%;
+            width: 99%;
             display: block;
             text-align: center;
             border-radius: 5px;
@@ -107,9 +126,6 @@
             text-align: center;
             z-index: 99;
             color: white;
-            width: 480px;
-            left: 50%;
-            margin-left: -240px;
         }
 
 
@@ -120,9 +136,8 @@
             display: none;
         }
 
-        table {
+        #table {
             position: fixed;
-            width: 480px;
             border: 1px black solid;
             border-top: 70px black solid;
             top: 0;
@@ -132,15 +147,15 @@
             background-size: cover;
         }
 
-        td {
+        #table td {
             width: 33%;
             background: none;
             border: 1px black solid;
             overflow: hidden;
             text-align: center;
             background-repeat: no-repeat;
-            background-position-x: center;
             background-size: contain;
+            background-position-x: center;
         }
 
         #lanza {
@@ -190,11 +205,131 @@
             position: fixed;
             display: none;
             text-align: center;
-            z-index: 99;
             color: white;
-            width: 480px;
-            left: 50%;
-            margin-left: -240px;
+
+        }
+
+        #leaderboard {
+            position: fixed;
+            display: none;
+            text-align: center;
+            color: white;
+        }
+
+        #leaderboard td {
+            text-align: left;
+            background: black;
+
+        }
+
+        /* responsive */
+        @media screen and (max-width: 500px) {
+
+            #lanza {
+                width: 150px;
+                height: 157px;
+                background-repeat: no-repeat;
+            }
+
+
+
+            #table {
+                width: 100%;
+            }
+
+            #header {
+                width: 100%;
+                left: 0;
+                margin-left: 0;
+            }
+
+
+            #game,
+            #result,
+            #intro,
+            #leaderboard {
+                position: fixed;
+                width: 100%;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+
+            #intro,
+            #result,
+            #leaderboard {
+                width: 90%;
+                margin: auto;
+                overflow-y: scroll;
+            }
+
+
+            #leaderboard {
+                width: 100%;
+            }
+
+            #leaderboard table {
+                width: 90%;
+                margin: auto;
+            }
+
+            #btn_menu {
+                z-index: 99;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-radius: 0;
+                width: 100%;
+            }
+
+            #leaderboard_table {
+                margin-bottom: 50px;
+            }
+
+        }
+
+        @media screen and (min-width: 500px) {
+
+            #result,
+            #intro,
+            #table {
+                width: 480px;
+                left: 50%;
+            }
+
+
+            #btn_menu {
+                width: 480px;
+                margin: auto;
+                margin-bottom: 30px;
+            }
+
+            #leaderboard {
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                overflow-y: scroll;
+            }
+
+            #leaderboard table {
+                width: 480px;
+                margin: auto;
+            }
+
+
+            #result,
+            #intro {
+                margin-left: -240px;
+                top: 5%;
+                bottom: 5%;
+            }
+
+
+
         }
     </style>
 
@@ -202,7 +337,7 @@
 
 
     <div id="intro">
-        <img src="static/jankoshappy.png">
+        <img src="static/jankoshappy.png" alt="jankos" width="229" height="200">
         <br><br>
         <div style="font-weight:bold">Welcome to the <b>Jankos Nidalee Spear Simulator 2021</b></div>
         <br>
@@ -212,12 +347,14 @@
         <br><br>
         <button onclick="startGame();" class="btn btn_primary">Start the game</button>
         <br>
+        <button onclick="showLeaderboard();" class="btn btn_default">🏆 Leaderboard</button>
+        <br>
         Share the game
         <br>
-        <img src="static/shareIcons/whatsapp.png" class="btn_social">
-        <img src="static/shareIcons/twitter.png" class="btn_social">
-        <img src="static/shareIcons/facebook.png" class="btn_social">
-        <br><br>
+        <img src="static/shareIcons/whatsapp.png" class="btn_social" width="40" height="40" alt="whatsapp">
+        <img src="static/shareIcons/twitter.png" class="btn_social" width="40" height="40" alt="twitter">
+        <img src="static/shareIcons/facebook.png" class="btn_social" width="40" height="40" alt="facebook">
+        <br>
         Made with love by<br>
         <a href="https://twitter.com/tacterapp" target="_blank">@tacterapp ❤️</a>
     </div>
@@ -229,12 +366,12 @@
 
         <div id="header">
             <div style="padding:0 15px;">
-                <span id="lives"></span><span id="score">0</span><span id="time">1:00</span>
+                <span id="lives"></span><span id="score">0</span><span id="time">0:30</span>
             </div>
         </div>
 
 
-        <table cellspacing="0" cellpadding="0">
+        <table id="table" cellspacing="0" cellpadding="0">
             <tr>
                 <td></td>
                 <td></td>
@@ -256,74 +393,96 @@
 
 
     <div id="result">
-        <img src="static/jankossad.gif">
+        <img src="static/jankossad.gif" alt="jankos" width="229" height="128">
         <br><br>
-        You scored <b id="final_score">58</b>
+        You scored <b id="final_score">0</b>
         <br>
-        That's actually <span>pretty bad</span>
+        That's actually <span id="score_status">pretty bad</span>
         <br><br>
-        <button onclick="location.reload();" class="btn btn_primary">Try again</button>
+        <button id="btn_retry" class="btn btn_primary">Try again</button>
+
+        <button style="margin-top:15px;" id="btn_save" class="btn btn_default">Save your score</button>
         <br>
-        Share the game
+        Share your score
         <br>
-        <img src="static/shareIcons/whatsapp.png" class="btn_social">
-        <img src="static/shareIcons/twitter.png" class="btn_social">
-        <img src="static/shareIcons/facebook.png" class="btn_social">
+        <img src="static/shareIcons/whatsapp.png" class="btn_social" width="40" height="40" alt="whatsapp">
+        <img src="static/shareIcons/twitter.png" class="btn_social" width="40" height="40" alt="twitter">
+        <img src="static/shareIcons/facebook.png" class="btn_social" width="40" height="40" alt="facebook">
         <br><br>
-        Maybe you should switch to <b>TFT</b> and use <b>Tacter App</b> to win some games.
-        <br><br>
-        <a href="https://get.tacter.app/WxYiSJCxaeb" target="_blank" class="btn btn_default">Download the best TFT
-            App</a>
-        <br><br>
-        Made with love by<br>
-        <a href="https://twitter.com/tacterapp" target="_blank">@tacterapp ❤️</a>
+        <div id="app" style="display:none">
+            Hey, do you play <b>TFT</b>? Check <b>Tacter App</b> and win 50% more games!
+            <br><br>
+            <a href="https://get.tacter.app/WxYiSJCxaeb" target="_blank" class="btn btn_default">Try Tacter App Now</a>
+            <br>
+            Made with love by<br>
+            <a href="https://twitter.com/tacterapp" target="_blank">@tacterapp ❤️</a>
+        </div>
     </div>
 
+    <div id="leaderboard">
+        <h2>Leaderboard</h2>
+        <table id="leaderboard_table" width="100%" cellpadding="5" cellspacing="1" bgcolor="white">
+            <tr>
+                <td>Pos</td>
+                <td>Nickname</td>
+                <td>Score</td>
+            </tr>
+        </table>
+        <br>
+
+        <button id="btn_menu" onclick="hideLeaderboard()" class="btn btn_primary">Back
+            to menu</button>
+    </div>
 
     <audio id="sound_lanza">
-        <source src="static/lanza5.mp3" type="audio/mp3">
+        <source src="static/sounds/lanza5.mp3" type="audio/mp3">
     </audio>
 
     <audio id="sound_ko_enemies">
-        <source src="static/ko.mp3" type="audio/mp3">
+        <source src="static/sounds/ko.mp3" type="audio/mp3">
     </audio>
 
     <audio id="sound_ko_allies">
-        <source src="static/ko_allies3.mp3" type="audio/mp3">
+        <source src="static/sounds/ko_allies3.mp3" type="audio/mp3">
     </audio>
 
     <audio id="music" loop>
-        <source src="static/music2.mp3" type="audio/mp3">
+        <source src="static/sounds/music3.mp3" type="audio/mp3">
     </audio>
 
-    <audio id="music_end" loop>
-        <source src="static/music_end.mp3" type="audio/mp3">
+    <audio id="music_end">
+        <source src="static/sounds/music_end.mp3" type="audio/mp3">
     </audio>
 
 
     <script>
-        var time_left = 30;//60;
+        var time_left = 30;
         var timer_lanza;
         var lanza_lanzada = false;
         var timer_enemies;
+        var timer_time;
         var score = 0;
+        var best_score = 20;
         var max_lives = 3;
         var total_lives = max_lives;
         var game_delay = 500;
+        var delete_delay = 2500;
 
         var screen_height = $(document).height();
         var screen_width = $(document).width();
         var lanza_width = parseInt($('#lanza').css('width'));
         var lanza_height = parseInt($('#lanza').css('height'));
-        var cell_height = parseInt($('td:first').css('height'));
+        var cell_height = parseInt($('#table td:first').css('height'));
 
 
-
+        var current_chars = [];
         var enemies = ['bwipo', 'doinb', 'gilius', 'ls', 'nashor', 'selfmade', 'theshy', 'tian', 'xpeke', 'zanzarah'];
         var allies = ['capsandwunder', 'mikyx', 'ocelote', 'rekkles'];
 
+        var cells;
+        var allies_aux;
+        var enemies_aux;
         var total_cells;
-
 
         var music_playing = false;
         var music = $('#music')[0];
@@ -332,21 +491,13 @@
         var sound_ko_allies = $('#sound_ko_allies')[0];
         var sound_ko_enemies = $('#sound_ko_enemies')[0];
 
+        if (document.location.href.indexOf('test') > -1) {
+            best_score = 1;
 
+            $(sound_ko_enemies).attr('src', 'static/sounds/hit.mp3');
+        }
 
-        /*
-        timer_enemies = setInterval(function () {
-
-            showEnemies();
-        }, 5000);
-        */
-
-
-        $('td').click(function (e) {
-
-
-
-
+        $('#table td').click(function (e) {
 
             if (!lanza_lanzada) {
                 lanza_lanzada = true;
@@ -358,28 +509,19 @@
                 var td_current = $(this);
                 var current_type = $(this).data('who');
 
-                var enemy_found = current_type == 'enemies';
 
 
-                if (current_type == 'enemies') {
-                    $(this).data('died', 1).stop();
-                }
+                $(td_current).stop();
 
 
-
-
-
-                var pos_x;// = e.pageX;
-                var pos_y;// = e.pageY;
+                var pos_x;
+                var pos_y;
 
                 pos_x = $(this).position().left + ((parseInt($(this).css('width'))) / 2);
-
-
+                pos_x += $('#table').position().left;
+                pos_x -= lanza_width;
 
                 pos_y = $(this).position().top + ((parseInt($(this).css('height'))) / 2);
-
-                pos_x += $('table').position().left;
-                pos_x -= lanza_width;
 
 
                 jQuery('#lanza').stop().show().css('left', -lanza_width).css('top', (screen_height + lanza_height + e.pageY)).animate({
@@ -388,22 +530,21 @@
                 }, 400, function () {
 
 
-
+                    lanza_lanzada = false;
 
 
                     if (current_type == 'enemies') {
                         sound_ko_enemies.currentTime = 0;
                         sound_ko_enemies.play();
 
+
+                        var rand_lucky = randomNumber(0, 2);
+                        if (rand_lucky == 1) {
+                            showEnemies(false);
+                        }
+
                         score++;
                         $('#score').html(score);
-
-                        /*
-                        $(td_current).data('who', '').data('died', 0).css('background-position-y', (cell_height - 212)).animate({
-                            'background-position-y': cell_height
-                        }, 200);
-                        */
-
 
                         $(td_current).css('background-color', 'rgb(0,255,0,0.2)');
                     } else if (current_type == 'allies') {
@@ -415,13 +556,14 @@
 
                     setTimeout(function () {
 
-                        $(td_current).data('who', '').data('died', 0).css('background-image', 'none').css('background-color', 'inherit');
+
+                        current_chars = arrayRemove(current_chars, $(td_current).data('name'));
+
+
+                        $(td_current).data('who', '').data('name', '').css('background-image', 'none').css('background-color', 'inherit');
+
 
                     }, 150);
-
-
-                    lanza_lanzada = false;
-
 
 
                     setTimeout(function () {
@@ -431,6 +573,7 @@
                         if (current_type == 'enemies') {
                             sound_ko_enemies.currentTime = 0;
                             sound_ko_enemies.play();
+
                         } else if (current_type == 'allies') {
                             sound_ko_allies.currentTime = 0;
                             sound_ko_allies.play();
@@ -450,6 +593,310 @@
             }
 
         });
+
+        function showLeaderboard() {
+
+            var total_rows = $("#leaderboard_table tr").length;
+
+
+            if (total_rows == 1) {
+
+                $.getJSON("https://jankosspears.vivirenremoto.com/?action=rank", function (data) {
+                    var items = [];
+                    $.each(data, function (key, val) {
+
+                        var emoji = '';
+
+                        if (key == 0) {
+                            emoji = '🥇 ';
+                        } else if (key == 1) {
+                            emoji = '🥈 ';
+                        } else if (key == 2) {
+                            emoji = '🥉 ';
+                        } else {
+                            emoji = key + 1;
+                        }
+
+                        items.push('<tr><td width="1">' + emoji + '</td><td width="70%">' + val.name + '</td><td width="30%">' + val.score + '</td></tr>');
+                    });
+
+                    $("#leaderboard_table").append(items.join(""));
+
+                });
+
+            }
+
+            confetti.start();
+
+            setTimeout(function () {
+                confetti.stop();
+            }, 2000);
+
+            $('#intro').hide();
+            $('#leaderboard').show();
+        }
+
+        function hideLeaderboard() {
+            $('#intro').show();
+            $('#leaderboard').hide();
+        }
+
+        function showEnemies(timeout_on) {
+            cells = [];
+            allies_aux = [...allies];
+            enemies_aux = [...enemies];
+            allies_aux = shuffle(allies_aux);
+            enemies_aux = shuffle(enemies_aux);
+
+
+
+
+            var rand_col = randomNumber(0, 4);
+
+            if (rand_col == 1) {
+
+
+
+                var found = current_chars.includes(allies_aux[0]);
+                if (found) {
+                    allies_aux = shuffle(allies_aux);
+                    allies_aux = shuffle(allies_aux);
+                    found = current_chars.includes(allies_aux[0]);
+                }
+
+                current_chars.push(allies_aux[0]);
+
+
+
+
+                cells.push('allies/' + allies_aux[0]);
+                allies_aux.shift();
+
+            } else if (rand_col > 1) {
+
+                var found = current_chars.includes(enemies_aux[0]);
+                if (found) {
+                    enemies_aux = shuffle(enemies_aux);
+                    enemies_aux = shuffle(enemies_aux);
+                    found = current_chars.includes(enemies_aux[0]);
+                }
+
+                current_chars.push(enemies_aux[0]);
+
+
+
+
+
+                cells.push('enemies/' + enemies_aux[0]);
+                enemies_aux.shift();
+
+            }
+
+
+            if (cells.length > 0) {
+
+
+                j = randomNumber(0, total_cells - 1);
+
+
+
+
+                var found = $('#table td:eq(' + j + ')').data('who') != '';
+
+
+                while (found) {
+                    j = randomNumber(0, total_cells - 1);
+                    found = $('#table td:eq(' + j + ')').data('who') != '';
+                }
+
+
+
+                if (!found) {
+
+
+                    var t_name = cells[0].split('/');
+
+                    var photo = cells[0] != '/' ? "url('static/" + cells[0] + ".png')" : 'none';
+
+
+
+
+                    $('#table td:eq(' + j + ')').data('who', t_name[0]).data('name', cells[0]).css('background-position-y', cell_height).css('background-image', photo).animate({
+                        'background-position-y': 0
+                    }, 1000);
+
+                }
+
+
+            }
+
+            if (time_left && timeout_on) {
+                setTimeout(function () {
+                    showEnemies(true);
+                }, game_delay);
+
+                if (j) {
+                    setTimeout(removeCell, delete_delay, j);
+                }
+            }
+
+
+
+
+        }
+
+
+        function removeCell(j) {
+
+            var photo = 'none';
+
+
+            var obj = $('#table td:eq(' + j + ')');
+
+
+            current_chars = arrayRemove(current_chars, $(obj).data('name'));
+
+
+
+            $(obj).data('who', '').data('name', '').css('background-position-y', cell_height).css('background-image', photo).animate({
+                'background-position-y': 0
+            }, 1000);
+        }
+
+
+        function updateLives() {
+            var html = '';
+
+            for (var i = 0; i < total_lives; i++) {
+                html += '♥';
+            }
+            for (var i = 0; i < (max_lives - total_lives); i++) {
+                html += '♡';
+            }
+
+
+            $('#lives').html(html);
+        }
+
+        function updateTime() {
+
+            timer_time = setInterval(function () {
+
+                time_left--;
+
+
+                if (time_left == 0) {
+                    endGame();
+                }
+
+                if (time_left < 10) time_left = '0' + time_left;
+
+                $('#time').html('0:' + time_left);
+            }, 1000);
+        }
+
+        function startGame() {
+
+            $('#intro').hide();
+            $('#leaderboard').hide();
+            $('#game').show();
+
+
+
+            total_cells = $('#table td').length;
+
+            $('#table').css('left', (screen_width - (parseInt($('#table').css('width')))) / 2);
+
+            $('#table td').data('who', '').data('name', '');
+
+
+            updateTime();
+            showEnemies(true);
+            showEnemies(false);
+            updateLives();
+        }
+
+        function endGame() {
+
+            clearInterval(timer_time);
+
+            music.pause();
+            music_end.play();
+
+            $('#final_score').html(score);
+
+            if (score >= best_score) {
+                status_text = 'Very good';
+                status_color = '#00ff00';
+
+
+                confetti.start();
+
+                setTimeout(function () {
+                    confetti.stop();
+                }, 1000);
+
+            } else {
+                status_text = 'Pretty bad';
+                status_color = '#ff0000';
+            }
+            $('#score_status').html(status_text).css('color', status_color);
+
+
+            $('#game').hide();
+            $('#result').show();
+
+
+            setTimeout(function () {
+                $('#btn_retry').click(function () {
+                    location.reload();
+                });
+
+
+
+                if (score) {
+
+                    $('#btn_save').click(function () {
+
+                        $('#btn_save').hide();
+
+                        var nickname = prompt("WHAT IS YOUR NICKNAME? - LEADERBOARD");
+                        if (nickname) {
+                            $.ajax({
+                                type: "POST",
+                                url: "https://jankosspears.vivirenremoto.com/?action=add",
+                                dataType: "json",
+                                data: {
+                                    name: nickname,
+                                    score: score
+                                },
+                                success: function (data) {
+                                    alert('YOUR RANK: ' + data.rank);
+                                }
+                            });
+                        }
+                    });
+                } else {
+
+                    $('#btn_save').hide();
+                }
+
+
+                $('#app').fadeIn('slow');
+
+            }, 1000);
+
+
+
+        }
+
+
+        function arrayRemove(arr, value) {
+
+            return arr.filter(function (ele) {
+                return ele != value;
+            });
+        }
 
 
         function randomNumber(min, max) {
@@ -477,193 +924,9 @@
             return a;
         }
 
-
-        var cells;
-        var allies_aux;
-        var enemies_aux;
-
-        function showEnemies() {
-
-
-
-
-            cells_numbers = [];
-            cells = [];
-            allies_aux = [...allies];
-            enemies_aux = [...enemies];
-            allies_aux = shuffle(allies_aux);
-            enemies_aux = shuffle(enemies_aux);
-
-
-
-            for (var i = 0; i < total_cells; i++) {
-                cells_numbers.push(i);
-            }
-            cells_numbers = shuffle(cells_numbers);
-
-
-
-            ////////////////////////////////
-
-            // cada celda es independiente?
-
-
-
-
-            var rand_col = randomNumber(0, 3);
-
-            if (rand_col == 1) {
-                if (allies_aux[0]) {
-                    cells.push('allies/' + allies_aux[0]);
-                    allies_aux.shift();
-                }
-            } else if (rand_col == 2) {
-                if (enemies_aux[0]) {
-                    cells.push('enemies/' + enemies_aux[0]);
-                    enemies_aux.shift();
-                }
-            } else {
-                cells.push('/');
-            }
-
-
-
-
-
-            var random_delay = 1;//randomNumber(1, 500);
-
-            j = cells_numbers[0];
-            //setTimeout(updateCell, random_delay, j);
-
-
-            var t_name = cells[0].split('/');
-            var photo = cells[0] != '/' ? "url('static/" + cells[0] + ".png')" : 'none';
-
-            $('td:eq(' + j + ')').data('who', t_name[0]).css('background-position-y', cell_height).css('background-image', photo).animate({
-                'background-position-y': 0
-            }, 1000);
-
-
-
-            if (time_left) {
-                setTimeout(showEnemies, game_delay);
-            }
-
-            /*
-
-
-
-            for (var i = 0; i < total_cells; i++) {
-                var rand_col = randomNumber(0, 3);
-
-                if (rand_col == 1) {
-                    if (allies_aux[0]) {
-                        cells.push('allies/' + allies_aux[0]);
-                        allies_aux.shift();
-                    }
-                } else if (rand_col == 2) {
-                    if (enemies_aux[0]) {
-                        cells.push('enemies/' + enemies_aux[0]);
-                        enemies_aux.shift();
-                    }
-                } else {
-                    cells.push('/');
-                }
-            }
-
-
-            for (var j = 0; j < total_cells; j++) {
-
-
-
-                var random_delay = randomNumber(1, 500);
-
-                setTimeout(updateCell, random_delay, j);
-            }
-
-            */
-
-
-
-        }
-
-
-        function updateCell(j) {
-
-            console.log(j);
-
-
-            var t_name = cells[j].split('/');
-            var photo = cells[j] != '/' ? "url('static/" + cells[j] + ".png')" : 'none';
-
-            $('td:eq(' + j + ')').data('who', t_name[0]).css('background-position-y', cell_height).css('background-image', photo).animate({
-                'background-position-y': 0
-            }, 1000);
-        }
-
-        function updateLives() {
-            var html = '';
-
-            for (var i = 0; i < total_lives; i++) {
-                html += '♥';
-            }
-            for (var i = 0; i < (max_lives - total_lives); i++) {
-                html += '♡';
-            }
-
-
-            $('#lives').html(html);
-        }
-
-        function startGame() {
-
-            $('#intro').hide();
-            $('#game').show();
-
-            setInterval(function () {
-
-                time_left--;
-
-
-                if (time_left == 0) {
-                    endGame();
-                }
-
-                if (time_left < 10) time_left = '0' + time_left;
-
-                $('#time').html('0:' + time_left);
-            }, 1000);
-
-
-            total_cells = $('td').length;
-
-            $('table').css('left', (screen_width - (parseInt($('table').css('width')))) / 2);
-
-            $('td').data('died', 0);
-
-
-            showEnemies();
-            updateLives();
-        }
-
-        function endGame() {
-            $('#final_score').html(score);
-
-            if (score >= 10) {
-                status_text = 'great';
-                status_color = '#00ff00';
-            } else {
-                status_text = 'pretty bad';
-                status_color = '#ff0000';
-            }
-            $('#score_status').html(status_text).css('color', status_color);
-
-
-            $('#game').hide();
-            $('#result').show();
-        }
-
         $(function () {
+
+
 
 
             $('body').click(function () {
@@ -674,22 +937,22 @@
             });
 
             $('.btn_social').click(function () {
-                var network = $(this).attr('src');
+                var network = $(this).attr('alt');
                 var share_url = document.location.href;
 
 
-                var share_message = document.title;
+                var share_message = 'From zoning to hitting enemies with G2Jankos Nidalee Spear Simulator 2021. Ready for #LEC';
                 if (score) {
-                    share_message += ' 👊 ¡Supera mi puntuación! 🔥' + score;
+                    share_message += ' ' + score + ' #zoningspears, beat me! 🎯 #LEC';
                 }
 
-                if (network.indexOf('twitter') > -1) {
+                if (network == 'twitter') {
                     share_url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(share_message) + '&tw_p=tweetbutton&url=' + share_url;
 
-                } else if (network.indexOf('facebook') > -1) {
+                } else if (network == 'facebook') {
                     share_url = 'https://www.facebook.com/sharer/sharer.php?u=' + share_url + '&quote=' + encodeURIComponent(share_message);
 
-                } if (network.indexOf('whatsapp') > -1) {
+                } if (network == 'whatsapp') {
                     share_url = 'whatsapp://send?text=' + encodeURIComponent(share_message + ' ' + share_url);
                 }
 
@@ -697,7 +960,6 @@
 
             });
 
-            //startGame();
 
         });
 
